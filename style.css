@@ -118,7 +118,7 @@ body {
     top: 5%;
     z-index:1;
     display: flex;
-    padding: 0 1.2rem;
+    padding: 0 2rem;
 }
 
 .heading h1{
@@ -167,4 +167,49 @@ body {
     top:27.43rem;
 }
 
+/*page2*/
+.page2{
+    height: 100vh;
+    width:100%;
+    background-color: #efddef;
+    color: #111;
+    padding: 1rem;
+    line-height: 1.1;
+}
 
+.firstLine{
+    display: flex;
+    align-items: baseline;
+    gap:0.8rem;
+}
+
+.firstLine h1{
+    font-size: 7rem;
+    white-space: nowrap;
+}
+
+.firstLine span{
+    font-size: 2rem;   
+}
+
+.secondLine{
+    display: flex;
+    flex-wrap: wrap;
+    gap:0.8rem;  
+}
+.secondLine span{
+    font-size: 2rem; 
+    white-space: nowrap;
+}
+.word{
+    color:#9b34a9;
+    position:relative;
+    display:inline-block;
+}
+.cover{
+    padding:1rem;
+    position:absolute;
+    inset:0;
+    background:#9b34a9;
+    z-index:2;
+}

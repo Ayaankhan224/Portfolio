@@ -64,5 +64,24 @@ document.addEventListener("mouseenter",()=>{
 //     ease:"power1.out"
 // });
 
+//aboutMe redact
+// gsap.to(".cover",{
+//     opacity:0,
+//     duration:0.5,
+//     stagger:0.3,
+//     scrollTrigger:{
+//         trigger:".page2",
+//         start:"top 65%",
+//     }
+// });
+let covers=document.querySelectorAll(".cover");
+covers.forEach((cover)=>{
+    cover.addEventListener("mouseover",()=>{
+        gsap.to(cover,{
+            opacity:0,
+            duration:0.3
+        });
+    });
+});
 
 
