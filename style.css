@@ -10,15 +10,11 @@ html,body {
     width: 100vw;
 }
 body {
-    color: #fff;
+    color: #ffffff;
     overflow-x: hidden;
 }
 
-.page1{
-    height: 100vh;
-    width: 100%;
-    background-color: #fff;
-}
+
 /*loading page*/
 .loading{
     position: fixed;
@@ -53,7 +49,108 @@ body {
 
 .l2 h1{
     font-family: jura;
-    margin-top:1rem;
+    margin-top:2rem;
     font-size: 0.9rem;
     letter-spacing: 0.3rem;
 }
+
+
+/*page1 (heading)*/
+
+.page1{
+    height: 100vh;
+    width: 100%;
+    background-color: #efddef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.grid{
+    position:absolute;
+    inset:0;
+    z-index:0;
+}
+
+.vline,
+.hline{
+    position:absolute;
+    background:#a33eb096;
+}
+
+.vline{
+    width:1.5px;
+    height:100%;
+}
+
+.vline:nth-child(1){ left:25%; }
+.vline:nth-child(2){ left:50%; }
+.vline:nth-child(3){ left:75%; }
+
+.hline{
+    height:2px;
+    width:100%;
+}
+
+.hline:nth-child(4){ top:33.33%; }
+.hline:nth-child(5){ top:66.66%; }
+
+
+/*heading*/
+.heading{
+    width: 100vw;
+    position: absolute;
+    top: 5%;
+    z-index:1;
+    display: flex;
+    padding: 0 1.2rem;
+}
+
+.heading h1{
+    flex:1;
+    color: #111;
+    font-family: jura;
+    letter-spacing: -0.1rem;
+}
+.leftH{
+    text-align: left;
+}
+.centerH{
+    text-align: center;
+}
+.rightH{
+    text-align: right;
+}
+.leftH, .rightH{
+    font-size: 1.2rem;
+    font-weight: 1000;
+}
+/*title*/
+.title{
+    z-index:1;    
+}
+
+.title h1{
+    color: #111;
+    font-weight: 800;
+    font-size:8rem;
+    letter-spacing: -1rem;
+}
+
+.title .fancyA{
+    font-size: 9rem;
+    stroke-width: 1rem;
+    font-family: Rouge Script;
+    position: absolute;
+    left:32rem;
+}
+.title .fancyN{
+    font-size: 9rem;
+    font-family: Rouge Script;
+    position: absolute;
+    left:51rem;
+    top:27.43rem;
+}
+
+
