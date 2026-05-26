@@ -18,8 +18,8 @@ body{
 /*cursor */
 .cursor{
     position:fixed;
-    width:clamp(2rem,4vw,4rem);
-    height:clamp(2rem,4vw,4rem);
+    width:clamp(2rem,4vw,3rem);
+    height:clamp(2rem,4vw,3rem);
     border-radius:50%;
     background:#111;
     transform:translate(-50%,-50%);
@@ -141,23 +141,14 @@ body{
     color:#111;
     font-family:gilroy,sans-serif;
     font-size:clamp(5rem,12vw,8rem);
-    font-weight:800;
+    font-weight:700;
     letter-spacing:clamp(-0.7rem,-1vw,-0.2rem);
     line-height:.9;
 }
-.title .fancyA{
-    position:absolute;
-    left:-19%;
-    top:3.8%;
-    font-family:"Rouge Script",cursive;
-    font-size:clamp(4rem,8vw,9rem);
-}
-.title .fancyN{
-    position:absolute;
-    right:4%;
-    top:52.5%;
-    font-family:"Rouge Script",cursive;
-    font-size:clamp(4rem,8vw,9rem);
+.fancy{
+    font-weight:900;
+    font-family: Rouge Script;
+    z-index:500;
 }
 
 
@@ -167,7 +158,6 @@ body{
     width:100%;
     background:#efddef;
     color:#111;
-    padding:clamp(1rem,3vw,2rem);
 }
 
 
@@ -201,6 +191,52 @@ body{
     filter .5s ease,
     opacity .5s ease;
 }
+
+/*right left wala bar*/
+.bar{
+    overflow:hidden;
+    width:100%;
+    display:flex;
+    padding: 1vw;
+    margin-top: 10vw;
+    background-color: rgba(192, 44, 192, 0.652);
+}
+.marquee{
+    display: flex;
+    flex-shrink:0;
+    align-items: center;
+    gap:1vw;
+    width:max-content;
+}
+.unit{
+    display:flex;
+    align-items:center;
+    gap:1vw;
+    flex-shrink:0;
+}
+.unit h1{
+    font-family: Fira Sans;
+    font-weight:400;
+    flex-shrink: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*mobile (temperory hai ye)*/

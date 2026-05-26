@@ -1,5 +1,3 @@
-//reload karne pe top of website pe jump krega
-
 //cursor 
 let cursor=document.querySelector(".cursor");
 window.addEventListener("mousemove",(dets)=>{
@@ -18,6 +16,7 @@ document.addEventListener("mouseenter",()=>{
 
 let loadingText=document.querySelector(".l2 h1");
 let loadingArr=["PREPARING THE CONTENT","warming up the pixels","brewing the content","SUMMONING THE GOOD STUFF","MAKING THINGS LOOK EXPENSIVE","WELCOME"];
+// loadingArr=["welcome"];
 let tlPage1= gsap.timeline({paused:true});
 
 loadingArr.forEach((text,idx)=>{
@@ -53,14 +52,12 @@ tlPage1
     duration:0.5,
     stagger:0.2
 })
-
 .from(".hline",{
     scaleX:0,
     duration:0.5,
     stagger:0.2
 },"<")
-
-.to(".title .fancyA, .title .fancyN",{
+.to(".fancy",{
     color:"rgb(131,41,214)",
     duration:0.35,
     ease:"power1.out"
@@ -79,7 +76,7 @@ gsap.to(".aboutMe p span",{
     ease:"power3.out",
     scrollTrigger:{
         trigger:".aboutMe",
-        start:"top 70%",
+        start:"top 60%"
     }
 });
 
@@ -108,6 +105,31 @@ heading.addEventListener("click", () => {
     }, 25);     
 });
 
+//scroll wala effect
+let move = gsap.to(".marquee",{
+    xPercent: -50,
+    duration:20,
+    repeat:-1,
+    ease:"none"
+});
+let lastScroll = window.scrollY;
+window.addEventListener("scroll",()=>{
+    let current = window.scrollY;
+    if(current < lastScroll){
+        move.timeScale(-1)
+        gsap.to(".marquee svg",{
+            rotate:180,
+            duration:0.25
+        });
+    } else {
+        move.timeScale(1);
+        gsap.to(".marquee svg",{
+            rotate:360,
+            duration:0.25
+        });
+    }
+    lastScroll = current;
+});
 
 
-
+//IMP::::::line19 remove aur line18 un-comment code push krne se pehle
