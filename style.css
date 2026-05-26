@@ -21,9 +21,7 @@ body {
     width:4rem;
     height:4rem;
     border-radius:50%;
-    background-color: rgba(215, 183, 220, 0.384);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.605);
+    background-color: #111;
     pointer-events:none;
     z-index:99999;
     transform:translate(-50%,-50%);
@@ -62,7 +60,8 @@ body {
 }
 
 .l2 h1{
-    font-family: jura;
+    font-family: Fira Sans;
+    font-weight: 500;
     margin-top:2rem;
     font-size: 0.9rem;
     letter-spacing: 0.3rem;
@@ -124,8 +123,9 @@ body {
 .heading h1{
     flex:1;
     color: #111;
-    font-family: jura;
+    font-family: Fira Sans;
     letter-spacing: -0.1rem;
+    font-weight: 500;
 }
 .leftH{
     text-align: left;
@@ -173,43 +173,36 @@ body {
     width:100%;
     background-color: #efddef;
     color: #111;
-    padding: 1rem;
-    line-height: 1.1;
+    padding: 2rem;
 }
 
-.firstLine{
+.aboutMe{
     display: flex;
-    align-items: baseline;
-    gap:0.8rem;
+    align-items: center;
+    justify-content: center;
+    gap:2rem;
+    margin-top:7rem;
 }
 
-.firstLine h1{
-    font-size: 7rem;
+.aboutMe h1{
+    font-size: 5rem;
     white-space: nowrap;
+    cursor:pointer;
 }
 
-.firstLine span{
-    font-size: 2rem;   
+.aboutMe p{
+    width:40rem;
+    font-size: 1.2rem;
+    font-family: Fira Sans;
+    font-weight: 400;
+    text-align: right;
 }
 
-.secondLine{
-    display: flex;
-    flex-wrap: wrap;
-    gap:0.8rem;  
+.aboutMe p span{
+    display: inline-block;
+    filter:blur(3px);
+    opacity:0.8;
+    transition: filter 0.5s ease, opacity 0.5s ease;
 }
-.secondLine span{
-    font-size: 2rem; 
-    white-space: nowrap;
-}
-.word{
-    color:#9b34a9;
-    position:relative;
-    display:inline-block;
-}
-.cover{
-    padding:1rem;
-    position:absolute;
-    inset:0;
-    background:#9b34a9;
-    z-index:2;
-}
+
+

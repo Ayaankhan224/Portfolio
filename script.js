@@ -12,76 +12,100 @@ document.addEventListener("mouseenter",()=>{
 });
 
 
-// // loading animation
+// loading animation
 
-// let loadingText=document.querySelector(".l2 h1");
-// let loadingArr=["PREPARING THE CONTENT","warming up the pixels","brewing the content","SUMMONING THE GOOD STUFF","MAKING THINGS LOOK EXPENSIVE","WELCOME"];
-// let tlPage1= gsap.timeline({paused:true});
+let loadingText=document.querySelector(".l2 h1");
+let loadingArr=["PREPARING THE CONTENT","warming up the pixels","brewing the content","SUMMONING THE GOOD STUFF","MAKING THINGS LOOK EXPENSIVE","WELCOME"];
+let tlPage1= gsap.timeline({paused:true});
 
-// loadingArr.forEach((text,idx)=>{
-//     setTimeout(()=>{
-//         loadingText.innerText=text.toUpperCase();
-//         if (loadingText.innerText==="welcome".toUpperCase()){
-//             gsap.to(".l1",{
-//                 y:"-100%",
-//                 duration: 2,
-//                 ease: "expo.inOut"
-//             });
-//             gsap.to(".l2",{
-//                 y:"100%",
-//                 duration: 2,
-//                 ease:"expo.inOut",
-//                 onComplete: () => {
-//                      gsap.set(".loading",{
-//                         display:"none"
-//                     });
+loadingArr.forEach((text,idx)=>{
+    setTimeout(()=>{
+        loadingText.innerText=text.toUpperCase();
+        if (loadingText.innerText==="welcome".toUpperCase()){
+            gsap.to(".l1",{
+                y:"-100%",
+                duration: 2,
+                ease: "expo.inOut"
+            });
+            gsap.to(".l2",{
+                y:"100%",
+                duration: 2,
+                ease:"expo.inOut",
+                onComplete: () => {
+                     gsap.set(".loading",{
+                        display:"none"
+                    });
     
-//                     tlPage1.play();
-//                 }
-//             });
-//         };
-//     },idx*850);
+                    tlPage1.play();
+                }
+            });
+        };
+    },idx*850);
     
-// });
-
-// //page1
-// tlPage1
-// .from(".vline",{
-//     scaleY:0,
-//     duration:0.5,
-//     stagger:0.2
-// })
-
-// .from(".hline",{
-//     scaleX:0,
-//     duration:0.5,
-//     stagger:0.2
-// },"<")
-
-// .to(".title .fancyA, .title .fancyN",{
-//     color:"rgb(131,41,214)",
-//     duration:0.35,
-//     ease:"power1.out"
-// });
-
-//aboutMe redact
-// gsap.to(".cover",{
-//     opacity:0,
-//     duration:0.5,
-//     stagger:0.3,
-//     scrollTrigger:{
-//         trigger:".page2",
-//         start:"top 65%",
-//     }
-// });
-let covers=document.querySelectorAll(".cover");
-covers.forEach((cover)=>{
-    cover.addEventListener("mouseover",()=>{
-        gsap.to(cover,{
-            opacity:0,
-            duration:0.3
-        });
-    });
 });
+
+//page1
+tlPage1
+.from(".vline",{
+    scaleY:0,
+    duration:0.5,
+    stagger:0.2
+})
+
+.from(".hline",{
+    scaleX:0,
+    duration:0.5,
+    stagger:0.2
+},"<")
+
+.to(".title .fancyA, .title .fancyN",{
+    color:"rgb(131,41,214)",
+    duration:0.35,
+    ease:"power1.out"
+});
+
+//about me section
+let aboutMe = document.querySelector(".aboutMe p");
+let words = aboutMe.innerText.split(" ");
+aboutMe.innerHTML = words
+  .map(word => `<span class="word">${word}</span>`)
+  .join(" ");
+gsap.to(".aboutMe p span",{
+    filter:"blur(0)",
+    opacity:1,
+    stagger:0.2,
+    ease:"power3.out",
+    scrollTrigger:{
+        trigger:".aboutMe",
+        start:"top 70%",
+    }
+});
+
+//heading random letter wala effect
+let randomLetters="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+let heading=document.querySelector(".aboutMe h1");
+let original=heading.innerText;
+heading.addEventListener("click", () => {
+    let iteration = 0;
+    let interval = setInterval(() => {
+        heading.innerText = original
+            .split("")
+            .map((letter, idx) => {
+                if(idx < iteration){
+                    return original[idx];
+                }
+                return randomLetters[
+                    Math.floor(Math.random() * randomLetters.length)
+                ];
+            })
+            .join("");
+        if(iteration >= original.length){
+            clearInterval(interval);
+        }
+        iteration += 0.15;
+    }, 25);     
+});
+
+
 
 
