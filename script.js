@@ -1,3 +1,5 @@
+//reload karne pe top of website pe jump krega
+
 //cursor 
 let cursor=document.querySelector(".cursor");
 window.addEventListener("mousemove",(dets)=>{
