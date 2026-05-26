@@ -241,6 +241,9 @@ body{
 
 /*mobile (temperory hai ye)*/
 @media (max-width:768px){
+    .cursor{
+        visibility: hidden;
+    }
     .heading{
         flex-direction:column;
         gap:.6rem;
@@ -270,5 +273,8 @@ body{
     .aboutMe p{
         text-align:center;
         width:95%;
+    }
+    .unit h1{
+        font-size:1rem;
     }
 }
