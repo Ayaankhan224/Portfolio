@@ -76,7 +76,7 @@ gsap.to(".aboutMe p span",{
     ease:"power3.out",
     scrollTrigger:{
         trigger:".aboutMe",
-        start:"top 60%"
+        start:"top 60%",
     }
 });
 
@@ -140,7 +140,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let isFlipAnimationCompleted = false;
 
     function initAnimations() {
-        ScrollTrigger.getAll().forEach(t => t.kill());
+        ScrollTrigger.getAll().forEach(trigger =>{ 
+            if(trigger.vars.trigger === ".sticky-section"){
+                trigger.kill();
+            }
+        });
         let mm = gsap.matchMedia();
         mm.add("(min-width: 768px)", () => {
             ScrollTrigger.create({
