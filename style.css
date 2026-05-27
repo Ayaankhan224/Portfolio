@@ -52,8 +52,11 @@ body::before{
 /*cursor */
 .cursor{
     position:fixed;
-    width:clamp(2rem,4vw,3rem);
-    height:clamp(2rem,4vw,3rem);
+    /* width:clamp(2rem,4vw,3rem);
+    height:clamp(2rem,4vw,3rem); */
+    width:fit-content;
+    height: fit-content;
+    scale:2;
     border-radius:50%;
     background:#111;
     transform:translate(-50%,-50%);
@@ -179,19 +182,18 @@ body::before{
 }
 .title h1{
     color:#111;
-    font-family:gilroy,sans-serif;
+    font-family:"Stack Sans Headline",sans-serif;
     font-size:clamp(5rem,12vw,8rem);
-    font-weight:800;
+    font-weight:900;
     letter-spacing:clamp(-0.7rem,-1vw,-0.2rem);
     line-height:.7;
 }
 .fancy{
     font-weight:300;
-    font-size: 1.45em;
+    font-size:1.3em;
     font-family: lobster;
     z-index:997;
 }
-
 
 /*page2*/
 .page2{
@@ -365,4 +367,33 @@ body::before{
         text-align:center;
         width:95%;
     }
+    .unit h1{
+        font-size:1.2rem;
+    }
+    .page3{
+        padding:1vh;
+    }
+    .project-heading{
+        margin-top:8vh;
+        align-items:center;
+    }
+    .project-heading h1{
+        font-size:3.5vh;
+        letter-spacing:-0.15vh;
+    }
+    .project-container{
+        height:auto;
+        flex-direction:column;
+        gap:1vh;
+    }
+    .project-container a{
+        width:100%;
+        flex-basis:auto;
+        min-height:32vh;
+        background-position:center;
+    }
+    .project1{
+        min-height:42vh;
+    }
 }
+

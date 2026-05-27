@@ -133,29 +133,83 @@ window.addEventListener("scroll",()=>{
 
 //project hover animation
 let projects=document.querySelectorAll(".pro");
-projects.forEach((el)=>{
+let ogText=cursor.innerText;
+let projectInfo="";
+let projectInfoArr=["this is project 1 \nabout xyz →","this is project 2 \nabout xyz →","this is project 3 \nabout xyz →","this is project 4 \nabout xyz →","this is project 5 \nabout xyz →"]
+projects.forEach((el,idx)=>{
+    const vignette = document.createElement("div");
+    Object.assign(vignette.style,{
+        position:"absolute",
+        inset:"0",
+        background:"radial-gradient(circle, rgba(0, 0, 0, 0.42) 35%, rgba(0, 0, 0, 0.9) 100%)",
+        opacity:"0",
+        pointerEvents:"none"
+    });
+    el.appendChild(vignette);
+    gsap.set(el,{
+        position:"relative",
+        overflow:"hidden"
+    });
+    
     el.addEventListener("mouseenter",()=>{
+        projectInfo=projectInfoArr[idx];
         gsap.to(".cursor",{
-            scale:2,
-            duration:.5,
-            ease:"power2.out",
+            scale:0.9,
+            opacity:0.8,
+            duration:0.15,
+            onComplete:()=>{
+                cursor.innerText=projectInfo;
+                // expand + new text
+                gsap.to(".cursor",{
+                    borderRadius:"25px",
+                    width:"220px",
+                    height:"70px",
+                    scale:1,
+                    opacity:1,
+                    duration:0.45,
+                    ease:"power3.out"
+                })
+            }
         })
-        gsap.to(".cursor i",{
-            scale:1.2,
-            opacity:1
-        })
-    })
+        gsap.to(el,{
+            scale:1.02,
+            duration:0.8,
+            ease:"power3.out"
+        });
+        gsap.to(vignette,{
+            opacity:1,
+            duration:0.6,
+            ease:"power2.out"
+        });    })
     el.addEventListener("mouseleave", () => {
         gsap.to(".cursor",{
-            scale:1,
-            duration:.5,
-            ease:"power2.out"
+        scale:0.9,
+        opacity:0.8,
+        duration:0.15,
+        onComplete:()=>{
+            cursor.innerText=ogText;
+            gsap.to(".cursor",{
+                borderRadius:"50%",
+                width:"25px",
+                height:"25px",
+                scale:2,
+                opacity:1,
+                duration:0.45,
+                ease:"power3.out"
+            });
+        }
         })
-        gsap.to(".cursor i",{
+        gsap.to(el,{
             scale:1,
-            opacity:0
-        })
-    });
+            duration:0.8,
+            ease:"power3.out"
+        });
+        gsap.to(vignette,{
+        opacity:0,
+        duration:0.6,
+        ease:"power2.out"
+        });
+    })
 })
 
 
