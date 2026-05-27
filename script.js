@@ -16,7 +16,7 @@ document.addEventListener("mouseenter",()=>{
 
 let loadingText=document.querySelector(".l2 h1");
 let loadingArr=["PREPARING THE CONTENT","warming up the pixels","brewing the content","SUMMONING THE GOOD STUFF","MAKING THINGS LOOK EXPENSIVE","WELCOME"];
-// loadingArr=["welcome"];
+// let loadingArr=["welcome"];
 let tlPage1= gsap.timeline({paused:true});
 
 loadingArr.forEach((text,idx)=>{
@@ -118,18 +118,99 @@ window.addEventListener("scroll",()=>{
     if(current < lastScroll){
         move.timeScale(-1)
         gsap.to(".marquee svg",{
-            rotate:180,
+            rotate:0,
             duration:0.25
         });
     } else {
         move.timeScale(1);
         gsap.to(".marquee svg",{
-            rotate:360,
+            rotate:180  ,
             duration:0.25
         });
     }
     lastScroll = current;
 });
+
+//card wale anim
+document.addEventListener("DOMContentLoaded", () => {
+    const cardContainer = document.querySelector(".card-container");
+    const stickyHeader = document.querySelector(".sticky-header");
+    const cards = document.querySelectorAll(".card");
+    let isGapAnimationCompleted = false;
+    let isFlipAnimationCompleted = false;
+
+    function initAnimations() {
+        ScrollTrigger.getAll().forEach(t => t.kill());
+        let mm = gsap.matchMedia();
+        mm.add("(min-width: 768px)", () => {
+            ScrollTrigger.create({
+                trigger: ".sticky-section",
+                start: "top top",
+                end: "+=300%",
+                pin: true,
+                scrub: true,
+                onUpdate: (self) => {
+                    const progress = self.progress;
+
+                    
+                    if (progress >= 0.1 && progress <= 0.25) {
+                        let mapped = gsap.utils.mapRange(0.1, 0.25, 0, 1, progress);
+                        gsap.set(stickyHeader, { y: -90 * mapped, opacity: mapped });
+                    } else if (progress < 0.1) {
+                        gsap.set(stickyHeader, { y: 0, opacity: 0 });
+                    } else if (progress > 0.25) {
+                        gsap.set(stickyHeader, { y: -90, opacity: 1 });
+                    }
+
+                    if (progress <= 0.25) {
+                        let widthMapped = gsap.utils.mapRange(0, 0.25, 30, 80, progress);
+                        gsap.set(cardContainer, { width: `${widthMapped}vw` });
+                    } else {
+                        gsap.set(cardContainer, { width: `80vw` });
+                    }
+
+                    if (progress >= 0.35 && !isGapAnimationCompleted) {
+                        gsap.to(cardContainer, { gap: "2rem", duration: 0.3 });
+                        gsap.to(cards, { borderRadius: "20px", duration: 0.3 });
+                        isGapAnimationCompleted = true;
+                    } else if (progress < 0.35 && isGapAnimationCompleted) {
+                        gsap.to(cardContainer, { gap: "0rem", duration: 0.3 });
+                        gsap.to("#card-1", { borderRadius: "20px 0 0 20px", duration: 0.3 });
+                        gsap.to("#card-2", { borderRadius: "0px", duration: 0.3 });
+                        gsap.to("#card-3", { borderRadius: "0 20px 20px 0", duration: 0.3 });
+                        isGapAnimationCompleted = false;
+                    }
+
+                    if (progress >= 0.70 && !isFlipAnimationCompleted) {
+                        gsap.to(cards, { rotateY: 180, stagger: 0.1, duration: 0.5 });
+                        gsap.to("#card-1", { y: 20, rotateZ: -5, duration: 0.5 });
+                        gsap.to("#card-3", { y: 20, rotateZ: 5, duration: 0.5 });
+                        isFlipAnimationCompleted = true;
+                    } else if (progress < 0.70 && isFlipAnimationCompleted) {
+                        gsap.to(cards, { rotateY: 0, stagger: { each: 0.1, from: "end" }, duration: 0.5 });
+                        gsap.to(["#card-1", "#card-3"], { y: 0, rotateZ: 0, duration: 0.5 });
+                        isFlipAnimationCompleted = false;
+                    }
+                }
+            });
+        });
+
+        mm.add("(max-width: 767px)", () => {
+            gsap.set([cards, cardContainer, stickyHeader], { clearProps: "all" });
+        });
+    }
+
+    initAnimations();
+
+    let resizeTimeout;
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            initAnimations();
+        }, 200);
+    });
+});
+
 
 
 //IMP::::::line19 remove aur line18 un-comment code push krne se pehle
