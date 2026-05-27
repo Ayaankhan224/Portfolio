@@ -59,8 +59,14 @@ body::before{
     transform:translate(-50%,-50%);
     pointer-events:none;
     z-index:99999;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
-
+.cursor i{
+    opacity:0;
+    color:#efddef;
+}
 
 /*laoding*/
 .loading{
@@ -189,7 +195,7 @@ body::before{
 
 /*page2*/
 .page2{
-    min-height:70vh;
+    /* min-height:40vh; */
     width:100%;
     background:transparent;
     color:#111;
@@ -257,6 +263,61 @@ body::before{
 
 
 /*page3 project section*/
+.page3{
+    background-color: #111;
+    padding:.7vh;
+}
+.project-heading{
+    margin-top:15vh;
+    display:flex;
+}
+.project-heading h1{
+    font-family:"Fira Sans",sans-serif;
+    font-weight:500;
+    color:#ffffff;
+    font-size:5vh;
+    letter-spacing: -.3vh;
+}
+.project-heading svg{
+    color:white
+}
+.project-container{
+    width:100%;
+    height:180vh;
+    display:flex;
+    flex-wrap: wrap;
+    gap:1vh;
+}
+.project-container a{
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 7px #000000aa;
+}
+.project1{
+    /* width:100%;  */
+    flex-basis: 98.5%;
+    background-image: url(p1.png);
+}
+.project2{
+    /* width:50%; */
+    flex-basis: 49%;
+    background-image: url(p2.jpg);
+}
+.project3{
+    /* width:50%; */
+    flex-basis: 49%;
+    background-image: url(p3.jpg);
+}
+.project4{
+    /* width:60% */
+    flex-basis: 59%;
+    background-image: url(p4.jpg);
+}
+.project5{
+    /* width:40%; */
+    flex-basis: 39%;
+    background-image: url(p5.jpg);
+}
 
 
 

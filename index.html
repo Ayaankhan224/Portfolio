@@ -4,25 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- reload karne pe top of website pe jump krega -->
-    <script>
+    <!-- <script>
       if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
       }
       window.onload = function () {
         window.scrollTo(0, 0);
       };
-    </script>
+    </script> -->
     <style>
       /* @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); */
-      @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap");
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css" />
     <title>Portfolio</title>
   </head>
   <body>
-    <div class="cursor"></div>
+    <div class="cursor"><i class="fa-solid fa-arrow-right"></i></div>
     <div class="loading">
       <div class="l1">
         <svg
@@ -431,7 +432,21 @@
       </div>
     </section>
 
-
+    <section class="page3">
+      <div class="project-heading">
+        <svg width="5.7vh" height="5.7vh" viewBox="0 0 24 24" stroke-width="1.5" fill="none" color="#000000">
+          <path d="M6.00005 6.00004L19 19M19 19V6.52004M19 19H6.52005" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <h1>SELECTED PROJECTS</h1>
+      </div>
+      <div class="project-container">
+        <a class="project1 pro" ></a>
+        <a class="project2 pro"></a>
+        <a class="project3 pro"></a>
+        <a class="project4 pro"></a>
+        <a class="project5 pro"></a>
+      </div>
+    </section>
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"

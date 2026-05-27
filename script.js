@@ -15,8 +15,8 @@ document.addEventListener("mouseenter",()=>{
 // loading animation
 
 let loadingText=document.querySelector(".l2 h1");
-let loadingArr=["PREPARING THE CONTENT","warming up the pixels","brewing the content","SUMMONING THE GOOD STUFF","MAKING THINGS LOOK EXPENSIVE","WELCOME"];
-// let loadingArr=["welcome"];
+// let loadingArr=["PREPARING THE CONTENT","warming up the pixels","brewing the content","SUMMONING THE GOOD STUFF","MAKING THINGS LOOK EXPENSIVE","WELCOME"];
+let loadingArr=["welcome"];
 let tlPage1= gsap.timeline({paused:true});
 
 loadingArr.forEach((text,idx)=>{
@@ -131,6 +131,32 @@ window.addEventListener("scroll",()=>{
     lastScroll = current;
 });
 
+//project hover animation
+let projects=document.querySelectorAll(".pro");
+projects.forEach((el)=>{
+    el.addEventListener("mouseenter",()=>{
+        gsap.to(".cursor",{
+            scale:2,
+            duration:.5,
+            ease:"power2.out",
+        })
+        gsap.to(".cursor i",{
+            scale:1.2,
+            opacity:1
+        })
+    })
+    el.addEventListener("mouseleave", () => {
+        gsap.to(".cursor",{
+            scale:1,
+            duration:.5,
+            ease:"power2.out"
+        })
+        gsap.to(".cursor i",{
+            scale:1,
+            opacity:0
+        })
+    });
+})
 
 
 //IMP::::::line19 remove aur line18 un-comment code push krne se pehle
