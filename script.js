@@ -1,3 +1,12 @@
+//lenis deafult settings
+const lenis = new Lenis({
+  autoRaf: true,
+});
+
+lenis.on('scroll', (e) => {
+});
+
+
 //cursor 
 let cursor=document.querySelector(".cursor");
 window.addEventListener("mousemove",(dets)=>{

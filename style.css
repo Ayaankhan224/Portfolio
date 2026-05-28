@@ -7,6 +7,7 @@
 html,body{
     min-height:100%;
     width:100%;
+
 }
 body{
     background:#efddef;
@@ -154,8 +155,7 @@ body::before{
     flex:1;
     color:#111;
     font-family:"Instrument Serif";
-    font-weight:500;
-    letter-spacing:-0.08rem;
+    font-weight:800;
 }
 .leftH{
     text-align:left;
@@ -184,15 +184,15 @@ body::before{
     color:#111;
     font-family:"Stack Sans Headline",sans-serif;
     font-size:clamp(5rem,12vw,8rem);
-    font-weight:900;
+    font-weight:800;
     letter-spacing:clamp(-0.7rem,-1vw,-0.2rem);
     line-height:.7;
 }
 .fancy{
-    font-weight:300;
-    font-size:1.3em;
-    font-family: lobster;
-    z-index:997;
+    font-size:1.4em;
+    font-weight:400;
+    font-family: lobster two;
+    z-index:999;
 }
 
 /*page2*/
@@ -320,6 +320,18 @@ body::before{
     flex-basis: 39%;
     background-image: url(p5.jpg);
 }
+a,h2{
+    cursor:pointer;
+    text-align:center;
+    color:white;
+    padding-top:2vh;
+    font-family: "Instrument Serif";
+    font-weight:400;
+    letter-spacing:.2vh;
+    text-decoration:none;
+}
+
+
 
 
 
