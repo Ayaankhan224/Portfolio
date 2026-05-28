@@ -414,6 +414,8 @@ body::before {
   background: #ca1551;
 }
 
+
+/*page5*/
 .page5 {
   height: 100vh;
   width: 100%;
@@ -428,6 +430,23 @@ body::before {
   font-size: 15vh;
   color: #fff;
   cursor: pointer;
+}
+.page5 a{
+  font-family: stack sans headline;
+  text-align: center;
+  font-size: 15vh;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+.page5 .insta:hover{
+  color:#ee5477;
+}
+.page5 .linkedin:hover{
+  color:#0A66C2;
+}
+.page5 .mail:hover{
+  color:#EA4335;
 }
 
 
@@ -500,7 +519,9 @@ body::before {
   .page4 {
     padding: 1rem;
   }
-
+  .vignette{
+    display:none;
+  }
   .skills-heading h1 {
     font-size: 5vh;
     margin-top: 5vh;
@@ -539,5 +560,14 @@ body::before {
     line-height: 1.5;
     max-width: 90%;
     text-align: center;
+  }
+  .page5{
+    padding:0 4vw;
+  }
+  .page5 h1,
+  .page5 a{
+    font-size:7vw;
+    line-height:1.15;
+    word-break:break-word;
   }
 }
