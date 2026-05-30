@@ -1,9 +1,3 @@
-//mobile alert
-if (window.innerWidth < 768){
-  window.alert("For the best experience, please view this portfolio on a desktop or laptop.\nRegards, Ayaan.");
-}
-
-
 //lenis deafult settings
 const lenis = new Lenis({
   autoRaf: true,
@@ -15,20 +9,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 //cursor
 let cursor = document.querySelector(".cursor");
-let cursorInv = document.querySelector(".cursorInv");
 window.addEventListener("mousemove", (dets) => {
   cursor.style.left = dets.clientX + "px";
   cursor.style.top = dets.clientY + "px";
-  cursorInv.style.left = dets.clientX + "px";
-  cursorInv.style.top = dets.clientY + "px";
 });
 document.addEventListener("mouseleave", () => {
   cursor.style.opacity = "0";
-  cursorInv.style.opacity = "0";
 });
 document.addEventListener("mouseenter", () => {
   cursor.style.opacity = "1";
-  cursorInv.style.opacity = "1";
 });
 
 // loading animation
@@ -157,91 +146,89 @@ let projects = document.querySelectorAll(".pro");
 let ogText = cursor.innerText;
 let projectInfo = "";
 let projectInfoArr = [
-  "this is project 1 \nabout xyz →",
+  "ATLIST:\nAI playlist generator →",
   "this is project 2 \nabout xyz →",
   "this is project 3 \nabout xyz →",
   "this is project 4 \nabout xyz →",
   "this is project 5 \nabout xyz →",
 ];
-if (window.innerWidth > 768){
-  projects.forEach((el, idx) => {
-    const vignette = document.createElement("div");
-    Object.assign(vignette.style, {
-      position: "absolute",
-      inset: "0",
-      background:
-        "radial-gradient(circle, rgba(0, 0, 0, 0.42) 35%, rgba(0, 0, 0, 0.9) 100%)",
-      opacity: "0",
-      pointerEvents: "none",
-    });
-    el.appendChild(vignette);
-    gsap.set(el, {
-      position: "relative",
-      overflow: "hidden",
-    });
+projects.forEach((el, idx) => {
+  const vignette = document.createElement("div");
+  Object.assign(vignette.style, {
+    position: "absolute",
+    inset: "0",
+    background:
+      "radial-gradient(circle, rgba(0, 0, 0, 0.42) 35%, rgba(0, 0, 0, 0.9) 100%)",
+    opacity: "0",
+    pointerEvents: "none",
+  });
+  el.appendChild(vignette);
+  gsap.set(el, {
+    position: "relative",
+    overflow: "hidden",
+  });
 
-    el.addEventListener("mouseenter", () => {
-      projectInfo = projectInfoArr[idx];
-      gsap.to(".cursor", {
-        scale: 0.9,
-        opacity: 0.8,
-        duration: 0.15,
-        onComplete: () => {
-          cursor.innerText = projectInfo;
-          // expand + new text
-          gsap.to(".cursor", {
-            borderRadius: "25px",
-            width: "220px",
-            height: "70px",
-            scale: 1,
-            opacity: 1,
-            duration: 0.45,
-            ease: "power3.out",
-          });
-        },
-      });
-      gsap.to(el, {
-        scale: 1.02,
-        duration: 0.8,
-        ease: "power3.out",
-      });
-      gsap.to(vignette, {
-        opacity: 1,
-        duration: 0.6,
-        ease: "power2.out",
-      });
+  el.addEventListener("mouseenter", () => {
+    projectInfo = projectInfoArr[idx];
+    gsap.to(".cursor", {
+      scale: 0.9,
+      opacity: 0.8,
+      duration: 0.15,
+      onComplete: () => {
+        cursor.innerText = projectInfo;
+        // expand + new text
+        gsap.to(".cursor", {
+          borderRadius: "25px",
+          width: "220px",
+          height: "70px",
+          scale: 1,
+          opacity: 1,
+          duration: 0.45,
+          ease: "power3.out",
+        });
+      },
     });
-    el.addEventListener("mouseleave", () => {
-      gsap.to(".cursor", {
-        scale: 0.9,
-        opacity: 0.8,
-        duration: 0.15,
-        onComplete: () => {
-          cursor.innerText = ogText;
-          gsap.to(".cursor", {
-            borderRadius: "50%",
-            width: "25px",
-            height: "25px",
-            scale: 2,
-            opacity: 1,
-            duration: 0.45,
-            ease: "power3.out",
-          });
-        },
-      });
-      gsap.to(el, {
-        scale: 1,
-        duration: 0.8,
-        ease: "power3.out",
-      });
-      gsap.to(vignette, {
-        opacity: 0,
-        duration: 0.6,
-        ease: "power2.out",
-      });
+    gsap.to(el, {
+      scale: 1.02,
+      duration: 0.8,
+      ease: "power3.out",
+    });
+    gsap.to(vignette, {
+      opacity: 1,
+      duration: 0.6,
+      ease: "power2.out",
     });
   });
-}
+  el.addEventListener("mouseleave", () => {
+    gsap.to(".cursor", {
+      scale: 0.9,
+      opacity: 0.8,
+      duration: 0.15,
+      onComplete: () => {
+        cursor.innerText = ogText;
+        gsap.to(".cursor", {
+          borderRadius: "50%",
+          width: "25px",
+          height: "25px",
+          scale: 2,
+          opacity: 1,
+          duration: 0.45,
+          ease: "power3.out",
+        });
+      },
+    });
+    gsap.to(el, {
+      scale: 1,
+      duration: 0.8,
+      ease: "power3.out",
+    });
+    gsap.to(vignette, {
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out",
+    });
+  });
+});
 
 //skills cards stacking animation
 let cards = gsap.utils.toArray(".cards");
@@ -266,103 +253,4 @@ cards.forEach((card,i)=>{
     }
 
 });
-
-//inverted cursor wala effect on page 5
-let page5 = document.querySelector(".page5");
-page5.addEventListener("mouseenter",()=>{
-    gsap.to(".cursor",{
-        scale:.6,
-        opacity:0,
-        duration:.12,
-        ease:"power2.out",
-        onComplete:()=>{
-            cursor.remove();
-            gsap.set(".cursorInv",{
-                visibility:"visible",
-                scale:.7,
-                opacity:0
-            });
-            gsap.to(".cursorInv",{
-                scale:1,
-                opacity:1,
-                duration:.22,
-                ease:"power2.out"
-            });
-        }
-    });
-});
-page5.addEventListener("mouseleave",()=>{
-    gsap.to(".cursorInv",{
-        scale:.7,
-        opacity:0,
-        duration:.12,
-        ease:"power2.out",
-        onComplete:()=>{
-            cursorInv.style.visibility="hidden";
-            document.body.appendChild(cursor);
-            gsap.fromTo(".cursor",
-                {
-                    scale:.6,
-                    opacity:0
-                },
-                {
-                    scale:2,
-                    opacity:1,
-                    duration:.22,
-                    ease:"power2.out"
-                }
-            );
-        }
-    });
-});
-
-//contact info wala anim
-const contactHeading = document.querySelector(".contactHeading");
-const texts = [
-    "WHAT?",
-    "WHAT'S HAPPENING?",
-    "BOY, YOU ARE STILL HERE?",
-    "YOU REALLY WANNA CONTACT ME HUH",
-    "FINE"
-];
-let clickCount = 0;
-contactHeading.addEventListener("click",()=>{
-  if(clickCount <= 5){
-    gsap.to(cursorInv,{
-        width:"250vw",
-        height:"250vw",
-        duration:.5,
-        ease:"power4.inOut",
-        onComplete:()=>{
-            gsap.to(contactHeading,{
-              opacity:0,
-              duration:.2,
-              onComplete:()=>{
-                contactHeading.innerText=texts[clickCount];
-                gsap.to(contactHeading,{
-                  opacity:1,
-                  duration:.3
-                });
-                gsap.to(cursorInv,{
-                width:"15vh",
-                height:"15vh",
-                duration:.5,
-                ease:"power4.inOut",
-                });
-                clickCount+=1;
-                if (clickCount==6){
-                  contactHeading.innerText="";
-                  cursorInv.remove();
-                  contactHeading.innerHTML=
-                  `<a class="insta" href="https://www.instagram.com/ayaannn.6?igsh=NHI4ajl2b3p6enht" onclick="event.stopPropagation()">INSTAGRAM</a><br>
-                  <a class="mail" href="https://mail.google.com/mail/?view=cm&fs=1&to=ayaankhan224271@gmail.com" onclick="event.stopPropagation()">GMAIL</a><br>
-                  <a class="linkedin" href="https://www.linkedin.com/in/ayaan-khan-702ba6410" onclick="event.stopPropagation()">LINKEDIN</a>`;
-                }
-              }
-            }); 
-        }
-    });
-  }
-});
-document.body.appendChild(cursorInv);
 //IMP::::::line27 remove aur line26 un-comment code push krne se pehle
