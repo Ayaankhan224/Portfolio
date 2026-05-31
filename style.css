@@ -407,8 +407,46 @@ body::before {
   height: 100vh;
   width: 100%;
   background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
+.page5 h1{
+  font-family: stack sans headline;
+  text-align: center;
+  font-size: 15vh;
+  color: #fff;
+  cursor: pointer;
+}
+.page5 a{
+  font-family: stack sans headline;
+  text-align: center;
+  font-size: 15vh;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+.page5 .insta:hover{
+  color:#ee5477;
+}
+.page5 .linkedin:hover{
+  color:#0A66C2;
+}
+.page5 .mail:hover{
+  color:#EA4335;
+}
+.cursorInv{
+    position:fixed;
+    width:20vh;
+    height:20vh;
+    border-radius:50%;
+    background:#fff;
+    mix-blend-mode:difference;
+    pointer-events:none;
+    z-index:99999;
+    transform:translate(-50%,-50%);
+    visibility:hidden;
+}
 
 
 

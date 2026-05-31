@@ -1,3 +1,6 @@
+let cursor = document.querySelector(".cursor");
+let cursorInv = document.querySelector(".cursorInv");
+
 //lenis deafult settings
 const lenis = new Lenis({
   autoRaf: true,
@@ -8,10 +11,11 @@ lenis.on("scroll", (e) => {});
 gsap.registerPlugin(ScrollTrigger);
 
 //cursor
-let cursor = document.querySelector(".cursor");
 window.addEventListener("mousemove", (dets) => {
   cursor.style.left = dets.clientX + "px";
   cursor.style.top = dets.clientY + "px";
+  cursorInv.style.left = dets.clientX + "px";
+  cursorInv.style.top = dets.clientY + "px";
 });
 document.addEventListener("mouseleave", () => {
   cursor.style.opacity = "0";
@@ -252,5 +256,54 @@ cards.forEach((card,i)=>{
 
     }
 
+});
+
+//inverted cursor wala effect on page 5
+let page5 = document.querySelector(".page5");
+page5.addEventListener("mouseenter",()=>{
+    gsap.to(".cursor",{
+        scale:.6,
+        opacity:0,
+        duration:.12,
+        ease:"power2.out",
+        onComplete:()=>{
+            cursor.remove();
+            gsap.set(".cursorInv",{
+                visibility:"visible",
+                scale:.7,
+                opacity:0
+            });
+            gsap.to(".cursorInv",{
+                scale:1,
+                opacity:1,
+                duration:.22,
+                ease:"power2.out"
+            });
+        }
+    });
+});
+page5.addEventListener("mouseleave",()=>{
+    gsap.to(".cursorInv",{
+        scale:.7,
+        opacity:0,
+        duration:.12,
+        ease:"power2.out",
+        onComplete:()=>{
+            cursorInv.style.visibility="hidden";
+            document.body.appendChild(cursor);
+            gsap.fromTo(".cursor",
+                {
+                    scale:.6,
+                    opacity:0
+                },
+                {
+                    scale:2,
+                    opacity:1,
+                    duration:.22,
+                    ease:"power2.out"
+                }
+            );
+        }
+    });
 });
 //IMP::::::line27 remove aur line26 un-comment code push krne se pehle
