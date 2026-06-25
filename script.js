@@ -1,7 +1,7 @@
 //mobile alert
 if (window.innerWidth < 768) {
   document.body.innerHTML = `
-    <div style="height:100vh;display:flex;justify-content:center;align-items:center;font-family:sans-serif;">
+    <div style="height:100vh;display:flex;justify-content:center;align-items:center;font-family:sans-serif;text-align:center;color:black">
       <h1>This website is curated<br />only for desktops. <br />Regards, Ayaan </h1>
     </div>
   `;
