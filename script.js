@@ -2,8 +2,7 @@
 if (window.innerWidth < 768) {
   document.body.innerHTML = `
     <div style="height:100vh;display:flex;justify-content:center;align-items:center;font-family:sans-serif;">
-      <h1>This website is curated /n only for desktops. /n
-      Regards, Ayaan </h1>
+      <h1>This website is curated<br />only for desktops. <br />Regards, Ayaan </h1>
     </div>
   `;
 } 
