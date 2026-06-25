@@ -1,7 +1,11 @@
 //mobile alert
-if (window.innerWidth < 768){
-  window.alert("For the best experience, please view this portfolio on a desktop or laptop.\nRegards, Ayaan.");
-}
+if (window.innerWidth < 768) {
+  document.body.innerHTML = `
+    <div style="height:100vh;display:flex;justify-content:center;align-items:center;font-family:sans-serif;">
+      <h1>Desktop Only</h1>
+    </div>
+  `;
+} 
 
 let cursor = document.querySelector(".cursor");
 let cursorInv = document.querySelector(".cursorInv");
