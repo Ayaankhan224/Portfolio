@@ -159,7 +159,7 @@ let projects = document.querySelectorAll(".pro");
 let ogText = cursor.innerText;
 let projectInfo = "";
 let projectInfoArr = [
-  "ATLIST:\nAI playlist generator →",
+  "ANKER: \nResumes Analuzer →",
   "this is project 2 \nabout xyz →",
   "this is project 3 \nabout xyz →",
   "this is project 4 \nabout xyz →",
