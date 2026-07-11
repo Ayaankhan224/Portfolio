@@ -160,7 +160,7 @@ let ogText = cursor.innerText;
 let projectInfo = "";
 let projectInfoArr = [
   "ANKER: \nResumes Analuzer →",
-  "this is project 2 \nabout xyz →",
+  "RADAR\nFind your skill gaps→",
   "this is project 3 \nabout xyz →",
   "this is project 4 \nabout xyz →",
   "this is project 5 \nabout xyz →",
