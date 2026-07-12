@@ -159,7 +159,7 @@ let projects = document.querySelectorAll(".pro");
 let ogText = cursor.innerText;
 let projectInfo = "";
 let projectInfoArr = [
-  "ANKER: \nResumes Analuzer →",
+  "ANKER: \nResumes Analyzer →",
   "RADAR\nFind your skill gaps→",
   "this is project 3 \nabout xyz →",
   "this is project 4 \nabout xyz →",
